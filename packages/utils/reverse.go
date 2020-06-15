@@ -1,9 +1,12 @@
+// Package utils implements additional functions to manipulate UTF-8
+// encoded strings, beyond what is provided in the standard "strings" package.
 package utils
 
-func Reverse(s string) string {
-	runes := []rune(s)
-	for i, j := len(runes)-1; i < j; i, j = i+1, j-1 {
-		runes[i], runes[j] = runes[j], runes[i]
+// ReverseRunes : ReverseRunes string
+func ReverseRunes(s string) string {
+	r := []rune(s)
+	for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
+		r[i], r[j] = r[j], r[i]
 	}
-	return string(runes)
+	return string(r)
 }
